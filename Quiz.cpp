@@ -4,8 +4,7 @@
 using namespace std;
 
 void Quiz::readQuizFromFile(string filename) {
-    // TODO: Reset/clear the vector of Questions
-
+    questions.clear();
 
     // Open the file
     ifstream inFile("../" + filename);
@@ -30,8 +29,6 @@ void Quiz::readQuizFromFile(string filename) {
         getline(inFile, message);
         q.setPrompt(message);
 
-
-
         // Number of points
         inFile >> number;
         q.setPoints(number);
@@ -54,8 +51,7 @@ void Quiz::readQuizFromFile(string filename) {
             q.addAnswer(message, correct);
         }
 
-        // TODO: Add the Question to vector field
-
+        questions.push_back(q);
 
         // Increment question number
         ++currQuestion;
@@ -63,8 +59,69 @@ void Quiz::readQuizFromFile(string filename) {
     inFile.close();
 }
 
-// TODO: Implement the other methods of the Quiz class here
+Quiz::Quiz() : title(""), totalPointsCorrect(0), totalPointsPossible(0) {
+    questions.clear();
+}
 
+string Quiz::getTitle() const {
+    return title;
+}
+
+int Quiz::getTotalPointsCorrect() const {
+    return totalPointsCorrect;
+}
+
+int Quiz::getTotalPointsPossible() const {
+    return totalPointsPossible;
+}
+
+int Quiz::getNumberOfQuestions() const {
+    return getNumberOfQuestions();
+}
+
+optional<Question> Quiz::getQuestion(int index) const {
+    if (index < 0 || index >= questions.size()) {
+        return nullopt;
+    }
+    return questions[index];
+}
+
+optional<Question> Quiz::getQuestion(string prompt) const {
+    for (int i = 0; i < questions.size(); ++i) {
+        if (questions[i].getPrompt() == prompt) {
+            return questions[i];
+        }
+    }
+    return nullopt;
+}
+
+void Quiz::setTitle(string title) {
+    this->title = title;
+}
+
+void Quiz::addQuestion(Question newQuestion) {
+    questions.push_back(newQuestion);
+}
+
+bool Quiz::removeQuestion(int index) {
+    if (index < 0 || index >= questions.size()) {
+        return false;
+    }
+    questions.erase(questions.begin() + index);
+    return true;
+}
+
+bool Quiz::removeQuestion(std::string prompt) {
+    bool removed = false;
+    for (int i = 0; i < questions.size(); ++i) {
+        if (questions[i].getPrompt() == prompt) {
+            questions.erase(questions.begin() + i);
+            --i;
+            removed = true;
+        }
+    }
+    return removed;
+}
 
 void Quiz::takeQuiz(string filename, ostream &outs, istream &ins) {
     // Read the quiz from the file
@@ -80,8 +137,7 @@ void Quiz::takeQuiz(string filename, ostream &outs, istream &ins) {
     string input;
     int index;
     // Print each question and get answer from user
-    // TODO: the next line should loop through the vector field
-    for (Question &q: /* put your component field here */) {
+    for (Question &q: questions) {
         totalPointsPossible += q.getPoints();
 
         // Print the question
@@ -95,7 +151,6 @@ void Quiz::takeQuiz(string filename, ostream &outs, istream &ins) {
             // Print "Invalid input. Try again: " to outs
             // Use getline to read from ins into input
             // Note that with string/character invalid input, the stream stays in a good state so you do not need to clear the stream or get rid of the junk input like you do with int/float type validation.
-
         }
 
         // Get the index of the answer based on the input from the user
