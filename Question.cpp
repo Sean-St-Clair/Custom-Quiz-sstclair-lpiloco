@@ -1,5 +1,6 @@
 #include "Question.h"
 #include <iostream>
+
 using namespace std;
 
 Question::Question() : prompt(""), points(0) {
@@ -66,7 +67,7 @@ bool Question::isCorrect(int index) {
 }
 
 bool Question::isCorrect(string text) {
-    for (answer &a : answers) {
+    for (answer &a: answers) {
         if (a.text == text && a.correct) {
             return true;
         }
@@ -74,11 +75,11 @@ bool Question::isCorrect(string text) {
     return false;
 }
 
-ostream& operator << (ostream& outs, const Question& q) {
+ostream &operator<<(ostream &outs, const Question &q) {
     outs << q.prompt << endl;
     // Print the answers with letter numbering (a. b. c. etc)
     char letter = 'a';
-    for (const answer& a : q.answers) {
+    for (const answer &a: q.answers) {
         outs << letter << ". " << a.text << endl;
         // Go to the next letter
         letter = char(int(letter) + 1);

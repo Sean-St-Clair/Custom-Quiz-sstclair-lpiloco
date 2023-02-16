@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+
 using std::ostream;
 using std::string;
 using std::vector;
@@ -23,20 +24,25 @@ public:
 
     /* Getters */
     string getPrompt() const;
+
     int getPoints() const;
+
     int getNumAnswers() const;
 
     /* Setters */
     void setPrompt(string prompt);
+
     void setPoints(int points);
 
     /* Add an answer to the question */
     void addAnswer(answer a);
+
     void addAnswer(string text, bool correct);
 
     /* Remove an answer either by vector index or text match
      * If multiple text matches, removes all instances      */
     bool removeAnswer(int index);
+
     bool removeAnswer(string text);
 
     /* Removes all answers */
@@ -46,10 +52,11 @@ public:
      * If multiple text matches,
      * returns true if at least one is correct   */
     bool isCorrect(int index);
+
     bool isCorrect(string text);
 
     /* Overloaded output operator */
-    friend ostream& operator << (ostream& outs, const Question& q);
+    friend ostream &operator<<(ostream &outs, const Question &q);
 };
 
 

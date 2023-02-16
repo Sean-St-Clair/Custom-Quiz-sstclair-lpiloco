@@ -1,5 +1,6 @@
 #include "Quiz.h"
 #include <fstream>
+
 using namespace std;
 
 void Quiz::readQuizFromFile(string filename) {
@@ -28,6 +29,8 @@ void Quiz::readQuizFromFile(string filename) {
         // Question Prompt
         getline(inFile, message);
         q.setPrompt(message);
+
+
 
         // Number of points
         inFile >> number;
@@ -63,7 +66,7 @@ void Quiz::readQuizFromFile(string filename) {
 // TODO: Implement the other methods of the Quiz class here
 
 
-void Quiz::takeQuiz(string filename, ostream& outs, istream& ins) {
+void Quiz::takeQuiz(string filename, ostream &outs, istream &ins) {
     // Read the quiz from the file
     readQuizFromFile(filename);
 
@@ -78,7 +81,7 @@ void Quiz::takeQuiz(string filename, ostream& outs, istream& ins) {
     int index;
     // Print each question and get answer from user
     // TODO: the next line should loop through the vector field
-    for (Question& q : /* put your component field here */) {
+    for (Question &q: /* put your component field here */) {
         totalPointsPossible += q.getPoints();
 
         // Print the question
