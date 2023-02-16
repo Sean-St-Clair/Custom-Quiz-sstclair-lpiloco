@@ -1,5 +1,6 @@
 #include "Quiz.h"
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -76,7 +77,7 @@ int Quiz::getTotalPointsPossible() const {
 }
 
 int Quiz::getNumberOfQuestions() const {
-    return getNumberOfQuestions();
+    return questions.size();
 }
 
 optional<Question> Quiz::getQuestion(int index) const {
@@ -147,10 +148,8 @@ void Quiz::takeQuiz(string filename, ostream &outs, istream &ins) {
         getline(ins, input);
         // Input validation
         while (input.size() != 1 || tolower(input[0]) < 'a' || tolower(input[0]) >= ('a' + q.getNumAnswers())) {
-            // TODO: There is invalid input.
-            // Print "Invalid input. Try again: " to outs
-            // Use getline to read from ins into input
-            // Note that with string/character invalid input, the stream stays in a good state so you do not need to clear the stream or get rid of the junk input like you do with int/float type validation.
+            cout << "Invalid input. Try again: " << endl;
+            getline(ins, input);
         }
 
         // Get the index of the answer based on the input from the user
