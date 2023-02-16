@@ -46,10 +46,11 @@ Create a `testing.cpp` file and put a `main` function in it that creates `Questi
 ## Questions
 Answer the following prompts here in your `README.md` file:
 * Give three examples of classes that would make sense to implement with the Has-A relationship (e.g. Car has an Engine):
-  1.  
-  2. 
-  3. 
+  1. Computer Has-A motherboard
+  2. Company Has-A employee
+  3. Hand Has-A finger
 * Describe in your own words the benefit(s) of the component relationship.
+  * It makes for more easily readable code by splitting the objects into different classes and allows for classes and objects that can be used in other programs, not just the one they were made for. 
 
 
 ## Grading
