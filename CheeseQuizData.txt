@@ -1,0 +1,53 @@
+So You THINK You're a Cheese Connoisseur!?!?
+5
+What color is (non-moldy) Wisconsin Cheddar? (1 pt)
+1
+4
+Blue
+0
+Green
+0
+Orange
+1
+Purple
+0
+In what state of matter is Fondue typically enjoyed? (1 pt)
+1
+4
+Solid
+0
+Liquid
+1
+Gas
+0
+Plasma
+0
+Which of the following cheeses is softest at room temperature? (2 pts)
+2
+5
+Cheddar
+0
+Swiss
+0
+Provolone
+0
+Brie
+1
+Parmesan
+0
+Which geographical region produces more cheese per year by volume? (1 pt)
+1
+3
+Italy
+0
+France
+0
+Wisconsin, USA
+1
+For the final, most important question, do you like cheese? (5 pts)
+5
+2
+Yes
+1
+No
+0
